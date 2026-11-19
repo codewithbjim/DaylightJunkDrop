@@ -1,3 +1,7 @@
+# Junk Drop 1.1.1
+
+- First release on CurseForge. No changes in game.
+
 # Junk Drop 1.1.0
 
 - Named "Junk Drop (DaylightUI Plugin)", following Daylight UI's plugin naming.
