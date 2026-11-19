@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Junk Drop description</title>
+<style>
+  body { font-family: Segoe UI, Arial, sans-serif; max-width: 720px; margin: 24px auto; padding: 0 16px; line-height: 1.5; color: #222; background: #fff; }
+  .tip { background: #f3eef8; border-left: 4px solid #8a4a8c; padding: 8px 12px; font-size: 14px; color: #444; }
+</style>
+</head>
+<body>
+
+<p class="tip">Select from the logo down to the end, copy, and paste into the CurseForge or Wago description editor. Formatting and the logo carry over.</p>
+<hr>
+
+<p><img src="https://raw.githubusercontent.com/codewithbjim/DaylightJunkDrop/main/media/logo-400.png" alt="Junk Drop logo" width="160" height="160"></p>
+
+<p><strong>Bags full in the middle of a quest?</strong> Press one key and the cheapest junk stack in your bags is gone. Press again for the next one.</p>
+
+<p>Junk Drop is a plugin for <a href="https://www.curseforge.com/wow/addons/daylightui">Daylight UI</a> on <strong>WoW: Forever</strong>. It fits right into Daylight UI: its key sits under Daylight UI in your key bindings, and its settings have their own page in Daylight UI's options.</p>
+
+<h2>Setup</h2>
+<ol>
+  <li>Install Junk Drop next to Daylight UI.</li>
+  <li>Open <strong>Esc &gt; Options &gt; Keybindings &gt; Daylight UI</strong> and set a key for <strong>Drop cheapest junk</strong>.</li>
+</ol>
+<p>Prefer typing? <code>/dui dropjunk</code> or <code>/dropjunk</code> does the same.</p>
+
+<h2>What it deletes</h2>
+<p>Each press deletes <strong>one stack</strong>: the one worth the least (its sell price times how many are in it).</p>
+<ul>
+  <li><strong>Gray items</strong> count as junk.</li>
+  <li><strong>Items you marked as junk</strong> in Daylight UI's bags count too. You can switch this off.</li>
+  <li>Only stacks worth <strong>10 silver or less</strong> go. Pricier junk is left for a vendor. Change the cap in <strong>/dui &gt; Plugins &gt; Junk Drop</strong>, or set it to 0 for no cap.</li>
+</ul>
+
+<h2>What it never deletes</h2>
+<ul>
+  <li>Items you <strong>locked</strong> in Daylight UI's bags.</li>
+  <li>Items in an <strong>equipment set</strong>, while Daylight UI's "lock sets" option is on.</li>
+  <li>Anything during a fight, or while your cursor is holding an item.</li>
+</ul>
+<p>Every delete is named in chat with what it was worth. Want to be extra careful? Turn on <strong>Ask before deleting</strong> for a yes/no box first.</p>
+
+<h2>Requires</h2>
+<ul>
+  <li><a href="https://www.curseforge.com/wow/addons/daylightui">Daylight UI</a></li>
+  <li>Daylight UI Bags is optional. With it, Junk Drop knows your marked and locked items.</li>
+</ul>
+
+<h2>Feedback</h2>
+<p>Found a bug or have an idea? Open an issue on <a href="https://github.com/codewithbjim/DaylightJunkDrop/issues">GitHub</a>.</p>
+
+<h2>Credits</h2>
+<p>The idea of a "destroy next junk item" key comes from <a href="https://github.com/moody/Dejunk">Dejunk</a> by moody. Junk Drop is its own code, written for Daylight UI.</p>
+
+</body>
+</html>

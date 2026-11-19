@@ -6,3 +6,4 @@ manual-changelog:
 
 ignore:
   - install.ps1
+  - media
