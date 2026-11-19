@@ -1,0 +1,6 @@
+<Bindings>
+    <!-- Listed under Daylight UI's own heading in Key Bindings. -->
+    <Binding name="DAYLIGHTJUNKDROP_DROP" category="BINDING_HEADER_DAYLIGHTUI">
+        if DaylightJunkDrop_Drop then DaylightJunkDrop_Drop() end
+    </Binding>
+</Bindings>

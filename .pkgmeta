@@ -1,0 +1,8 @@
+package-as: DaylightJunkDrop
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
+
+ignore:
+  - install.ps1
