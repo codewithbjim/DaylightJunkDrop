@@ -3,6 +3,7 @@
 ## Notes: One key press deletes the cheapest junk stack in your bags.
 ## Author: virtualbjörn
 ## Version: @project-version@
+## X-Curse-Project-ID: 1815891
 ## IconTexture: Interface\AddOns\DaylightJunkDrop\icon.png
 ## Dependencies: DaylightUI
 ## OptionalDeps: DaylightUI_Bags
