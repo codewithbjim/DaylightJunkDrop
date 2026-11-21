@@ -1,3 +1,7 @@
+# Junk Drop 1.2.1
+
+- Uploaded again. No changes in game.
+
 # Junk Drop 1.2.0
 
 - New **Make macro** button (`/dui` > Plugins > Junk Drop), or `/dropjunk macro`: makes a
