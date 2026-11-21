@@ -12,6 +12,10 @@ Needs [Daylight UI](https://www.curseforge.com/wow/addons/daylightui). Made for 
 
 `/dui dropjunk` or `/dropjunk` does the same as the key.
 
+Rather click than press a key? `/dui` > Plugins > Junk Drop > **Make macro** (or type
+`/dropjunk macro`) makes a **Junk Drop** macro and puts it on your cursor. Click an action bar slot
+to place it. Each click of it deletes one stack.
+
 ## What it deletes
 
 Each press deletes **one stack**: the one worth least (its sell price times how many are in it).

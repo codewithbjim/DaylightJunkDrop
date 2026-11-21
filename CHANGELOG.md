@@ -1,3 +1,8 @@
+# Junk Drop 1.2.0
+
+- New **Make macro** button (`/dui` > Plugins > Junk Drop), or `/dropjunk macro`: makes a
+  Junk Drop macro and puts it on your cursor, ready for an action bar slot.
+
 # Junk Drop 1.1.1
 
 - First release on CurseForge. No changes in game.

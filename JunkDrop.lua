@@ -154,6 +154,53 @@ function DaylightJunkDrop_Drop()
     end
 end
 
+-- A "Junk Drop" macro for the action bars. Making it again reuses the one already
+-- there, so it can be picked up as often as you like.
+local MACRO_NAME = "Junk Drop"
+local MACRO_ICON = "INV_Misc_Bag_08"
+local MACRO_BODY = "/dropjunk"
+
+function DaylightJunkDrop_MakeMacro()
+    if InCombatLockdown() then
+        say("not during a fight.")
+        return
+    end
+    if type(CreateMacro) ~= "function" then return end
+
+    local index = GetMacroIndexByName(MACRO_NAME)
+    if index and index > 0 then
+        local body = GetMacroBody(index)
+        if type(body) == "string" and strtrim(body) ~= MACRO_BODY then
+            say("you already have a different macro named " .. MACRO_NAME .. ". Rename it in /macro first.")
+            return
+        end
+    else
+        local account, perChar = GetNumMacros()
+        local maxAccount = MAX_ACCOUNT_MACROS or 120
+        local maxChar = MAX_CHARACTER_MACROS or 18
+        local forChar
+        if (account or 0) < maxAccount then
+            forChar = nil
+        elseif (perChar or 0) < maxChar then
+            forChar = 1
+        else
+            say("your macro list is full. Delete one in /macro and try again.")
+            return
+        end
+        local ok, made = pcall(CreateMacro, MACRO_NAME, MACRO_ICON, MACRO_BODY, forChar)
+        if not ok or not made or made == 0 then
+            say("couldn't make the macro.")
+            return
+        end
+        index = made
+        say("made the |cffffd200" .. MACRO_NAME .. "|r macro" .. (forChar and " (this character only)" or "") .. ".")
+    end
+
+    if GetCursorInfo() then ClearCursor() end
+    pcall(PickupMacro, index)
+    say("click an action bar slot to put it there. It's also in /macro.")
+end
+
 -- Daylight UI hookup: its own section under Plugins in /dui, and /dui dropjunk.
 if API and API.major == 1 then
     DaylightUI:RegisterPlugin(NAME, {
@@ -173,6 +220,9 @@ if API and API.major == 1 then
               groups = {
                   { label = "Key", items = {
                       { type = "text", label = "Set the key under Esc > Options > Keybindings > Daylight UI > Drop cheapest junk. Each press deletes one stack. /dui dropjunk does the same." },
+                      { type = "button", label = "Action bar macro", text = "Make macro",
+                        desc = "Makes a Junk Drop macro and puts it on your cursor: click an action bar slot to place it. Each click of the macro deletes one stack.",
+                        func = function() DaylightJunkDrop_MakeMacro() end },
                   } },
                   { label = "What counts", items = {
                       { type = "slider", key = "maxSilver", label = "Most it may be worth", min = 0, max = 200, step = 1,
@@ -190,8 +240,18 @@ if API and API.major == 1 then
     })
     me = API.For(NAME)
 
-    me.RegisterCommand("dropjunk", function() DaylightJunkDrop_Drop() end, "Delete the cheapest junk stack.")
+    me.RegisterCommand("dropjunk", function(rest) DaylightJunkDrop_Command(rest) end,
+        "Delete the cheapest junk stack. /dui dropjunk macro makes an action bar macro.")
+end
+
+function DaylightJunkDrop_Command(rest)
+    local word = strtrim(tostring(rest or "")):lower()
+    if word == "macro" then
+        DaylightJunkDrop_MakeMacro()
+    else
+        DaylightJunkDrop_Drop()
+    end
 end
 
 SLASH_DAYLIGHTJUNKDROP1 = "/dropjunk"
-SlashCmdList.DAYLIGHTJUNKDROP = function() DaylightJunkDrop_Drop() end
+SlashCmdList.DAYLIGHTJUNKDROP = function(msg) DaylightJunkDrop_Command(msg) end
