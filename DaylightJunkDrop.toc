@@ -7,5 +7,7 @@
 ## IconTexture: Interface\AddOns\DaylightJunkDrop\icon.png
 ## Dependencies: DaylightUI
 ## OptionalDeps: DaylightUI_Bags
+## SavedVariables: DaylightJunkDropDB
+## SavedVariablesPerCharacter: DaylightJunkDropCharDB
 
 JunkDrop.lua
